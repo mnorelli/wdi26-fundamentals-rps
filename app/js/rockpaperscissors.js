@@ -44,7 +44,7 @@ function getWinner(playerMove,computerMove) {
         winner = 'tie';
     } else if ((playerMove == 'rock' && computerMove == 'scissors') 
         || (playerMove == 'scissors' && computerMove == 'paper') 
-        || (playerMove == 'rock' && computerMove == 'scissors')) {
+        || (playerMove == 'paper' && computerMove == 'rock')) {
         winner = 'player';
     } else {
         winner = 'computer'
