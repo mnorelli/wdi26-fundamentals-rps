@@ -4,7 +4,7 @@
 'use strict';
 
 function getInput() {
-    console.log("Please choose either 'rock', 'paper', or 'scissors'.")
+    console.log("Please choose either 'rock', 'paper', or 'scissors'.");
     return prompt();
 }
 function randomPlay() {
@@ -49,16 +49,41 @@ function getWinner(playerMove,computerMove) {
     } else {
         winner = 'computer'
     }
-
     return winner;
 }
 
+var playerMove, computerMove, winner = '';
+
 function playToFive() {
-    console.log("Let's play Rock, Paper, Scissors");
-    var playerWins = 0;
-    var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
-    return [playerWins, computerWins];
+  console.log('Let\'s play Rock Paper Scissors');
+  var playerWins = 0;
+  var computerWins = 0;
+  // This function should continue to play Rock Paper Scissors until either the
+  // player or the computer has won five times.
+  // After each 'round', display some text in the console indicating who played
+  // what, who won, and what the current scoreboard looks like.
+  // For example,
+  //  console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+  //  console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
+  /* YOUR CODE HERE */
+  while (playerWins<5 && computerWins<5) {
+    playerMove = getPlayerMove();
+    computerMove = getComputerMove();
+    winner = getWinner(playerMove,computerMove);
+    console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+    if (winner === 'player') {
+        playerWins += 1;
+        console.log("PLAYER wins!");
+    } else if (winner === 'computer') {
+        computerWins += 1;
+        console.log("COMPUTER wins!");
+    } else if (winner === 'tie') {
+        console.log("TIE!!");
+    }
+    console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
+  }
+  console.log("*** GAME OVER ***");
+  return [playerWins, computerWins];
 }
 
+playToFive();
